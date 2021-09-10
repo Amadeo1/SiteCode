@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>MoneyWhisperer's Money Tips</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: transparent;">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/icon.jpg" alt="Icon" width="45px" class="mr-1">
+            MoneyWhisperer's Money Tips
+        </a>
+        <!--
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        -->
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stock.html">Best Stock Referral Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bank.html">Best Bank Referral Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crypto.html">Best Crypto Referral Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crypto.html">Other Best Referral Offers</a>
+                </li>
+                -->
+            </ul>
+        </div>
+    </nav>
+    
+    <div>
+        
+        <div class="icontainer">
+            <img src="img/about_cover.jpg" alt="Cover">
+            <div class="centered">
+                <div class="title">
+                    Admin Panel
+                </div>
+                <div class="sub-title">
+                    Restricted 
+                </div>
+            </div>
+        </div>
+
+        <section class="">
+            {% if not logged_in %}
+                <h2>Log In As Admin</h2>
+
+                <form action="/admin" method="POST">
+                    <input name="username" type="text" class="form-control" placeholder="Username">
+                    <br>
+                    <input name="password" type="password" class="form-control" placeholder="Password">
+                    <br>
+                    <input type="submit" class="btn btn-primary btn-block" value="Log in">
+                </form>
+            {% else %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Clicks</th>
+                            <th scope="col">Url</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stat in table %}
+                            <tr>
+                                <th scope="row">
+                                    {{ stat[0] }}
+                                </th>
+                                <td>
+                                    {{ stat[1].clicks }}
+                                </td>
+                                <td>
+                                    <a href="{{ stat[1].url }}">{{ stat[1].url }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </section>
+
+        <footer class="text-center text-lg-start bg-light text-muted">
+        
+            <!-- Section: Links  -->
+            <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                <!-- Grid column
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    <i class="fas fa-gem me-3"></i>Company name
+                    </h6>
+                    <p>
+                    Here you can use rows and columns to organize your footer content. Lorem ipsum
+                    dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                </div>
+                Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Referrals
+                    </h6>
+                    <p>
+                    <a href="stock.html" class="text-reset">Best Stock Offers</a>
+                    </p>
+                    <p>
+                    <a href="bank.html" class="text-reset">Best Bank Offers</a>
+                    </p>
+                    <p>
+                    <a href="crypto.html" class="text-reset">Best Crypto Offers</a>
+                    </p>
+                    <p>
+                    <a href="other.html" class="text-reset">Other Best Offers</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Useful links
+                    </h6>
+                    <p>
+                    <a href="index.html" class="text-reset">Home</a>
+                    </p>
+                    <p>
+                    <a href="about.html" class="text-reset">About this site</a>
+                    </p>
+                    <p>
+                    <a href="books.html" class="text-reset">Book Recommendations</a>
+                    </p>
+                    <p>
+                    <a href="news.html" class="text-reset">Finance News</a>
+                    </p>
+                    <p>
+                    <a href="policy.html" class="text-reset">Comment Policy</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                    Contact
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p>
+                    <i class="fas fa-envelope me-3"></i>
+                    info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                </div>
+                Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            </section>
+            <!-- Section: Links  -->
+        
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright 
+            <a class="text-reset fw-bold" href="about.html">youngmoneywhisperer.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="index.js"></script>
+</body>
+</html>
